@@ -5,12 +5,9 @@ resource "aws_vpc" "main" {
   instance_tenancy = "default"
   enable_dns_hostnames = true
 
-  tags = merge(
-    local.common,
-    {
-        Name = "${var.project}-${var.environment}"
-    },
-     var.vpc_tags
-  )
-    
+  tags = {
+
+    project = var.project
+    environment = var.environment
+  }
   }
