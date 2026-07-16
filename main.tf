@@ -10,4 +10,11 @@ resource "aws_vpc" "main" {
     project = var.project
     environment = var.environment
   }
+
   }
+
+  resource "aws_internet_gateway" "main" {
+  vpc_id = aws_vpc.main.id # VPC association
+
+  tags = local.igw_final_tags
+}
